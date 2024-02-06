@@ -23,7 +23,7 @@ def test_just_pid_controller():
     pid_controller_simulation = Simulation(msd_system, pid_controller)
 
     # Perform the simulation
-    t_pid, x_pid, v_pid = pid_controller_simulation.simulate(
+    t_pid, x_pid, _ = pid_controller_simulation.simulate(
         setpoint=0.5,
         initial_conditions=(1.0, 0.0),
         duration=300.0,
@@ -55,7 +55,7 @@ def test_just_pid_controller_2():
     pid_controller_simulation = Simulation(msd_system, pid_controller)
 
     # Perform the simulation
-    t_pid, x_pid, v_pid = pid_controller_simulation.simulate(
+    t_pid, x_pid, _ = pid_controller_simulation.simulate(
         setpoint=1.0,
         initial_conditions=(0.0, 0.0),
         duration=6.0,
@@ -88,7 +88,7 @@ def test_just_p_controller_1():
     p_controller_simulation = Simulation(msd_system, p_controller)
 
     # Perform the simulation
-    t_pid, x_pid, v_pid = p_controller_simulation.simulate(
+    t_p, x_p, _ = p_controller_simulation.simulate(
         setpoint=1.0,
         initial_conditions=(0.0, 0.0),
         duration=1.2,
@@ -97,8 +97,8 @@ def test_just_p_controller_1():
     )
 
     # Plot the results
-    plt.plot(t_pid, x_pid, label='P Position')
-    plt.plot(t_pid, [1.0]*len(t_pid), label='Setpoint', linestyle='--')
+    plt.plot(t_p, x_p, label='P Position')
+    plt.plot(t_p, [1.0]*len(t_p), label='Setpoint', linestyle='--')
     plt.xlabel('Time (s)')
     plt.ylabel('Position (m)')
     plt.title(f'Mass-Spring-Damper System Simulation: P Controller')
@@ -120,7 +120,7 @@ def test_just_pd_controller_1():
     pd_controller_simulation = Simulation(msd_system, pd_controller)
 
     # Perform the simulation
-    t_pid, x_pid, v_pid = pd_controller_simulation.simulate(
+    t_pd, x_pd, _ = pd_controller_simulation.simulate(
         setpoint=1.0,
         initial_conditions=(0.0, 0.0),
         duration=1.2,
@@ -129,8 +129,8 @@ def test_just_pd_controller_1():
     )
 
     # Plot the results
-    plt.plot(t_pid, x_pid, label='PD Position')
-    plt.plot(t_pid, [1.0]*len(t_pid), label='Setpoint', linestyle='--')
+    plt.plot(t_pd, x_pd, label='PD Position')
+    plt.plot(t_pd, [1.0]*len(t_pd), label='Setpoint', linestyle='--')
     plt.xlabel('Time (s)')
     plt.ylabel('Position (m)')
     plt.title(f'Mass-Spring-Damper System Simulation: PD Controller')
@@ -152,7 +152,7 @@ def test_just_pi_controller_1():
     pi_controller_simulation = Simulation(msd_system, pi_controller)
 
     # Perform the simulation
-    t_pid, x_pid, v_pid = pi_controller_simulation.simulate(
+    t_pi, x_pi, _ = pi_controller_simulation.simulate(
         setpoint=1.0,
         initial_conditions=(0.0, 0.0),
         duration=1.8,
@@ -161,8 +161,8 @@ def test_just_pi_controller_1():
     )
 
     # Plot the results
-    plt.plot(t_pid, x_pid, label='PI Position')
-    plt.plot(t_pid, [1.0]*len(t_pid), label='Setpoint', linestyle='--')
+    plt.plot(t_pi, x_pi, label='PI Position')
+    plt.plot(t_pi, [1.0]*len(t_pi), label='Setpoint', linestyle='--')
     plt.xlabel('Time (s)')
     plt.ylabel('Position (m)')
     plt.title(f'Mass-Spring-Damper System Simulation: PD Controller')
@@ -184,7 +184,7 @@ def test_just_pid_controller_1():
     pid_controller_simulation = Simulation(msd_system, pid_controller)
 
     # Perform the simulation
-    t_pid, x_pid, v_pid = pid_controller_simulation.simulate(
+    t_pid, x_pid, _ = pid_controller_simulation.simulate(
         setpoint=1.0,
         initial_conditions=(0.0, 0.0),
         duration=1.8,
@@ -220,7 +220,7 @@ def test_p_vs_pd_controller():
     pd_controller_simulation = Simulation(msd_system, pd_controller)
 
     # Perform the simulation
-    t_p, x_p, v_p = p_controller_simulation.simulate(
+    t_p, x_p, _ = p_controller_simulation.simulate(
         setpoint=1.0,
         initial_conditions=(0, 0),
         duration=3.0,
@@ -229,7 +229,7 @@ def test_p_vs_pd_controller():
     )
 
     # Perform the simulation
-    t_pd, x_pd, v_pd = pd_controller_simulation.simulate(
+    _, x_pd, _ = pd_controller_simulation.simulate(
         setpoint=1.0,
         initial_conditions=(0, 0),
         duration=3.0,
@@ -264,7 +264,7 @@ def test_p_vs_pi_controller():
     pi_controller_simulation = Simulation(msd_system, pi_controller)
 
     # Perform the simulation
-    t_p, x_p, v_p = p_controller_simulation.simulate(
+    t_p, x_p, _ = p_controller_simulation.simulate(
         setpoint=1.0,
         initial_conditions=(0, 0),
         duration=3.0,
@@ -273,7 +273,7 @@ def test_p_vs_pi_controller():
     )
 
     # Perform the simulation
-    t_pi, x_pi, v_pi = pi_controller_simulation.simulate(
+    _, x_pi, _ = pi_controller_simulation.simulate(
         setpoint=1.0,
         initial_conditions=(0, 0),
         duration=3.0,
