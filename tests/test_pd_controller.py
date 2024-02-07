@@ -14,8 +14,8 @@ from tests.utils import pd_controller_params, msd_params, simulation_params, out
 def test_pd_controller_equal_frequencies():
 
     # Frequencies
-    dt_system = 0.01  # System frequency (100 Hz)
-    dt_controller = 0.01  # Controller frequency (100 Hz)
+    dt_system = 0.001  # System frequency (1000 Hz)
+    dt_controller = 0.001  # Controller frequency (1000 Hz)
 
     # Create instances of the system and the controller
     msd_system = MassSpringDamper(m=msd_params.m, k=msd_params.k, b=msd_params.b)
@@ -53,8 +53,8 @@ def test_pd_controller_equal_frequencies():
 def test_pd_controller_greater_system_frequency():
 
     # Frequencies
-    dt_system = 0.001  # System frequency (1000 Hz)
-    dt_controller = 0.01  # Controller frequency (100 Hz)
+    dt_system = 0.0001  # System frequency (10000 Hz)
+    dt_controller = 0.001  # Controller frequency (1000 Hz)
 
     # Create instances of the system and the controller
     msd_system = MassSpringDamper(m=msd_params.m, k=msd_params.k, b=msd_params.b)
@@ -93,8 +93,8 @@ def test_pd_controller_greater_system_frequency():
 def test_pd_controller_greater_controller_frequency():
 
     # Frequencies
-    dt_system = 0.01  # System frequency (100 Hz)
-    dt_controller = 0.001  # Controller frequency (1000 Hz)
+    dt_system = 0.001  # System frequency (1000 Hz)
+    dt_controller = 0.0001  # Controller frequency (10000 Hz)
 
     # Create instances of the system and the controller
     msd_system = MassSpringDamper(m=msd_params.m, k=msd_params.k, b=msd_params.b)

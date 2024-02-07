@@ -120,7 +120,7 @@ def output_simulation_to_csv(times: np.ndarray, positions: np.ndarray, velocitie
 
 #####################
 
-# Baseline params for tests
+# Baseline params for individual tests
 p_controller_params = ControllerParams(kp=10.0, ki=0.0, kd=0.0)
 pi_controller_params = ControllerParams(kp=10.0, ki=2.8, kd=0.0)
 pd_controller_params = ControllerParams(kp=400.0, ki=0.0, kd=50.0)
@@ -129,7 +129,7 @@ msd_params = MassSpringDamperSystemParams(m=1.0, k=10.0, b=0.5)
 simulation_params = SimulationParams(
     setpoint=1.0,
     initial_conditions=(0.0, 0.0),
-    duration=10.0, # usually 60
+    duration=60.0, # usually 60
     dt_system=0.01,      # doesn't actually get used but has to be set
     dt_controller=0.01,  # doesn't actually get used but has to be set
 )
